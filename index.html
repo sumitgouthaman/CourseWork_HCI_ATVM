@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Western Railways</title>
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/atvm.css" rel="stylesheet">
+</head>
+
+<body ng-controller="atvmController">
+    <div class="container main-container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>{{title}}</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 hidden-xs">
+                <h3>All Stations</h3>
+                <hr/>
+            </div>
+            <div class="col-sm-9 hidden-xs">
+                <h3>Choose Destination</h3>
+                <hr/>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <!-- Angular -->
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-touch.min.js"></script>
+    <!-- App Logic -->
+    <script src="js/atvm-controller.js"></script>
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+</html>
