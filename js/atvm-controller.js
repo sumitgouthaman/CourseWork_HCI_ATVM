@@ -66,6 +66,44 @@ function atvmController($scope) {
         }
     }
 
+    $scope.getSingleClass = function () {
+        if (!$scope.returnTicket)
+            return "";
+        else
+            return "opaque";
+    }
+
+    $scope.getReturnClass = function () {
+        if (!$scope.returnTicket)
+            return "opaque";
+        else
+            return "";
+    }
+
+    $scope.getPersonClass = function (index, number) {
+        if (index < number) {
+            return "";
+        } else {
+            return "opaque";
+        }
+    }
+    $scope.setNoOfAdults = function (num) {
+        $scope.noOfAdults = num;
+    }
+    $scope.setNoOfChildren = function (num) {
+        $scope.noOfChildren = num;
+    }
+
+    $scope.getTotal = function (dest, ret, ad, ch) {
+        var total = 0;
+        total = $scope.stations[$scope.source].costs[dest];
+        if (ret) {
+            total = total * 2;
+        }
+        total = total * ad + total * ch * 0.5;
+        return total;
+    }
+
     $scope.mainStations = [0, 5, 9, 12, 16, 20];
 
     $scope.stations = [
@@ -196,4 +234,7 @@ function atvmController($scope) {
  }
 
 ];
+    $scope.range = function (num) {
+        return new Array(num);
+    }
 }

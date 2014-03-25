@@ -23,4 +23,26 @@ html {
     border-radius: 20px;
     border-style: dashed;
     border-width: 2px;
+    padding: 20px;
+}
+.pointer {
+    cursor: pointer;
+}
+.opaque {
+    opacity: 0.2;
+}
+.ticket hr {
+    border-color: #b4b4b4;
+/*
+    margin-top:10px;
+ margin-bottom:5px;
+*/
+}
+.radio-inline {
+    font-size: 20px;
+}
+.adult {
+    height: 40px;
+    width: 25px;
+    margin-right: 10px;
 }
