@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Western Railways</title>
+    <title>{{title}}</title>
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom css -->
@@ -13,20 +13,42 @@
 </head>
 
 <body ng-controller="atvmController">
-    <div class="container main-container">
+    <div class="container main-container set-height">
         <div class="row">
             <div class="col-xs-12">
                 <h1>{{title}}</h1>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-3 hidden-xs">
+        <div class="row set-height">
+            <div class="col-sm-3 hidden-xs set-height">
                 <h3>All Stations</h3>
                 <hr/>
+                <div class="list-group set-height scrollable">
+                    <a href="#" class="list-group-item" ng-repeat="station in stations track by $index" ng-class="getSelectedStationStyle($index)" ng-click="setSelectedStation($index)">{{station.name}}</a>
+                </div>
             </div>
-            <div class="col-sm-9 hidden-xs">
+            <div class="col-sm-9 hidden-xs set-height">
                 <h3>Choose Destination</h3>
                 <hr/>
+                <div class="btn-group btn-group-justified btn-group-lg">
+                    <div class="btn-group btn-group-lg" ng-repeat="mainStation in mainStations track by $index">
+                        <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(mainStation)" ng-click="setSelectedMainStation($index)">{{getStation(mainStation)}}
+                        </button>
+                    </div>
+                </div>
+                <br/>
+                <br/>
+                <div class="btn-group btn-group-justified btn-group-md center-block" style="width:90%;">
+                    <div class="btn-group btn-group-md" ng-repeat="subStation in getSubstations(selectedMainStation)">
+                        <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(subStation[1])" ng-click="setSelectedStation(subStation[1])">{{subStation[0]}}
+                        </button>
+                    </div>
+                </div>
+                <hr/>
+                <h3>Ticket</h3>
+                <div class="ticket center-block">
+
+                </div>
             </div>
         </div>
     </div>

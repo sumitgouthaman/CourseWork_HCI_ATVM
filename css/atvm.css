@@ -1,0 +1,26 @@
+body,
+html {
+    height: 99%;
+    overflow: hidden;
+}
+.grayed {
+    background-color: #e3e3e3;
+}
+.green {
+    background-color: #47a447;
+    color: #ffffff;
+}
+.set-height {
+    height: 95%;
+}
+.scrollable {
+    overflow: auto;
+}
+.ticket {
+    height: 70%;
+    width: 95%;
+    background-color: #fff0d9;
+    border-radius: 20px;
+    border-style: dashed;
+    border-width: 2px;
+}
