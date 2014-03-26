@@ -13,108 +13,117 @@
 </head>
 
 <body ng-controller="atvmController">
-    <div class="container main-container set-height">
+    <div class=" main-container set-height">
+        <div class="container set-height">
+            <!--
         <div class="row">
             <div class="col-xs-12">
                 <h1>{{title}}</h1>
             </div>
         </div>
-        <div class="row set-height">
-            <div class="col-sm-3 hidden-xs set-height">
-                <h3>All Stations</h3>
-                <hr/>
-                <div class="list-group set-height scrollable">
-                    <a href="#" class="list-group-item" ng-repeat="station in stations track by $index" ng-class="getSelectedStationStyle($index)" ng-click="setSelectedStation($index)">{{station.name}}</a>
-                </div>
-            </div>
-            <div class="col-sm-9 hidden-xs set-height">
-                <h3>Choose Destination</h3>
-                <hr/>
-                <div class="btn-group btn-group-justified btn-group-lg">
-                    <div class="btn-group btn-group-lg" ng-repeat="mainStation in mainStations track by $index">
-                        <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(mainStation)" ng-click="setSelectedMainStation($index)">{{getStation(mainStation)}}
-                        </button>
+-->
+            <div class="row set-height">
+                <div class="col-sm-3 hidden-xs set-height">
+                    <h3>All Stations</h3>
+                    <hr/>
+                    <div class="list-group set-height scrollable">
+                        <a href="#" class="list-group-item" ng-repeat="station in stations track by $index" ng-class="getSelectedStationStyle($index)" ng-click="setSelectedStation($index)">{{station.name}}</a>
                     </div>
                 </div>
-                <br/>
-                <br/>
-                <div class="btn-group btn-group-justified btn-group-md center-block" style="width:90%;">
-                    <div class="btn-group btn-group-md" ng-repeat="subStation in getSubstations(selectedMainStation)">
-                        <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(subStation[1])" ng-click="setSelectedStation(subStation[1])">{{subStation[0]}}
-                        </button>
-                    </div>
-                </div>
-                <hr/>
-                <h3>Ticket</h3>
-                <div class="ticket center-block">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <img src="images/logo.png">
+                <div class="col-sm-9 hidden-xs set-height">
+                    <h3>Choose Destination</h3>
+                    <hr/>
+                    <div class="btn-group btn-group-justified btn-group-lg">
+                        <div class="btn-group btn-group-lg" ng-repeat="mainStation in mainStations track by $index">
+                            <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(mainStation)" ng-click="setSelectedMainStation($index)">{{getStation(mainStation)}}
+                            </button>
                         </div>
-                        <div class="col-xs-9">
-                            <h1 class="text-right">Mumbai Metro Ticket</h1>
+                    </div>
+                    <br/>
+                    <div class="btn-group btn-group-justified btn-group-md center-block" style="width:90%;">
+                        <div class="btn-group btn-group-md" ng-repeat="subStation in getSubstations(selectedMainStation)">
+                            <button type="button" class="btn btn-default" ng-class="getSelectedStationStylePrimary(subStation[1])" ng-click="setSelectedStation(subStation[1])">{{subStation[0]}}
+                            </button>
                         </div>
                     </div>
                     <hr/>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h2>Start:
-                                <span class="text-warning">{{stations[source].name}}</span>
-                            </h2>
+                    <h3>Ticket</h3>
+                    <div class="ticket center-block">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <img src="images/logo.png" class="logo">
+                            </div>
+                            <div class="col-xs-9">
+                                <h2 class="text-right">Mumbai Metro Ticket</h2>
+                            </div>
                         </div>
-                        <div class="col-xs-6">
-                            <h2 class="pull-right">Destination:
-                                <span class="text-success">{{stations[selectedStation].name}}</span>
-                            </h2>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h3>Start:
+                                    <span class="text-warning">{{stations[source].name}}</span>
+                                </h3>
+                            </div>
+                            <div class="col-xs-6">
+                                <h3 class="pull-right">Destination:
+                                    <span class="text-success">{{stations[selectedStation].name}}</span>
+                                </h3>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-4">
-                            <h2>Journey type:</h2>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <h3>Journey type:</h3>
+                            </div>
+                            <div class="col-xs-4">
+                                <h3 class="text-primary text-center pointer" ng-class="getSingleClass()" ng-click="returnTicket = false">Single</h3>
+                            </div>
+                            <div class="col-xs-4">
+                                <h3 class="text-success text-center pointer" ng-class="getReturnClass()" ng-click="returnTicket = true">Return</h3>
+                            </div>
                         </div>
-                        <div class="col-xs-4">
-                            <h2 class="text-primary text-center pointer" ng-class="getSingleClass()" ng-click="returnTicket = false">Single</h2>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h3 class="text-center">Adults</h3>
+                            </div>
+                            <div class="col-xs-6">
+                                <h3 class="text-center">Children</h3>
+                            </div>
                         </div>
-                        <div class="col-xs-4">
-                            <h2 class="text-success text-center pointer" ng-class="getReturnClass()" ng-click="returnTicket = true">Return</h2>
-                        </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h3 class="text-center">Adults</h3>
-                        </div>
-                        <div class="col-xs-6">
-                            <h3 class="text-center">Children</h3>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-6 text-center">
-                            <img src="images/person-icon.png" ng-repeat="adult in range(5) track by $index" ng-class="getPersonClass($index, noOfAdults)" ng-click="setNoOfAdults($index+1)" class="adult pointer" />
-                        </div>
-                        <div class="col-xs-6 text-center">
+                        <div class="row">
+                            <div class="col-xs-6 text-center">
+                                <img src="images/person-icon.png" ng-repeat="adult in range(5) track by $index" ng-class="getPersonClass($index, noOfAdults)" ng-click="setNoOfAdults($index+1)" class="adult pointer" />
+                            </div>
+                            <div class="col-xs-6 text-center">
 
-                        </div>
-                        <div class="col-xs-6 text-center">
-                            <img src="images/person-icon.png" ng-repeat="child in range(5) track by $index" ng-class="getPersonClass($index, noOfChildren)" ng-click="setNoOfChildren($index+1)" class="adult pointer" />
-                        </div>
-                        <div class="col-xs-6 text-center">
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <img src="images/person-icon.png" ng-repeat="child in range(5) track by $index" ng-class="getPersonClass($index, noOfChildren)" ng-click="setNoOfChildren($index+1)" class="adult pointer" />
+                            </div>
+                            <div class="col-xs-6 text-center">
 
+                            </div>
                         </div>
-                    </div>
-                    <hr/>
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <h1>Total:</h1>
-                        </div>
-                        <div class="col-xs-6">
-                            <h1 class="text-right text-success">Rs. {{getTotal(selectedStation, returnTicket, noOfAdults, noOfChildren)}}</h1>
+                        <hr/>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <h1>Total:</h1>
+                            </div>
+                            <div class="col-xs-5">
+                                <h1 class="text-right text-success">Rs. {{getTotal(selectedStation, returnTicket, noOfAdults, noOfChildren)}}</h1>
+                            </div>
+                            <div class="col-xs-2">
+                                <h1>
+                                    <button class="btn btn-danger btn-md pull-right">Print</button>
+                                </h1>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- jQuery -->
     <script src="js/jquery-1.11.0.min.js"></script>
